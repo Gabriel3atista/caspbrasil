@@ -1,3 +1,5 @@
+@import 'style.css';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +8,9 @@
   text-decoration: none;
   font-style: unset;
   font-weight: unset;
+  list-style: none;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 html {

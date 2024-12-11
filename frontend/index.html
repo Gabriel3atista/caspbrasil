@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CaspBrasil — Teste de Frontend</title>
-  <link rel="stylesheet" href="./assets/reset.css">
-  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
@@ -16,25 +15,32 @@
   <div class="container">
     <div class="content">
       <div class="content__header">
-        <h1 class="title">CaspBrasil</h1>
-        <p class="subtitle">Listagem de usuários</p>
+        <h1 class="header__title">CaspBrasil</h1>
+        <p>Listagem de usuários</p>
       </div>
-      <div class="content__list">
-        <ol class="list">
-          <li class="list__item">Gabriel Batista</li>
-        </ol>
-      </div>
-      <form class="content__form">
-        <div class="form__group">
+      <div class="content__body">
+        <div class="body__form">
           <input type="text" class="form__input" />
-          <button class="form__button">Exibit Nome</button>
+          <button type="submit" class="form__button">Exibir Nome</button>
         </div>
-      </form>
+        <div class="body__list">
+          <ul class="list"></ul>
+        </div>
+      </div>
       <div class="content__footer">
-        <p>Footer</p>
+        <div class="footer__content">
+          <img src="./assets/imgs/logo.png" alt="Logotipo CaspBrasil">
+          <ul class="footer_link-list">
+            <li>contato@caspbrasil.com.br</li>
+            <li>41 9 9286-2987</li>
+            <li>caspbrasil.com.br</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
+  <script src="./scripts/observer.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
