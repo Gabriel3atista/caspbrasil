@@ -1,9 +1,20 @@
 class Observer {
   constructor() {
     this.names = ['Gabriel Batista'];
+
+    this.init();
+  }
+
+  getElements () {
     this.list = document.querySelector('.list');
-    
+    this.input = document.querySelector('.form__input');
+    this.addButton = document.querySelector('.form__button');
+  }
+
+  init () {
+    this.getElements();
     this.render(this.names);
+    this.addButton.addEventListener('click', () => this.addName());
   }
 
   update(names) {
@@ -11,11 +22,9 @@ class Observer {
   }
 
   render(names) {
-    console.log(names);
+    this.list.innerHTML = '';
     
     names.forEach((name, index) => {
-      this.list.innerHTML = '';
-
       this.list.insertAdjacentHTML('beforeend', `
         <li class="list__item">
           <div class="item__content">
@@ -23,7 +32,7 @@ class Observer {
             <p class="item__text">${name}</p>
           </div>
           <div class="item__action">
-            <div class="item__action-icon">
+            <div class="delete-button-${index} item__action-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/>
               </svg>
@@ -31,12 +40,19 @@ class Observer {
           </div>
         </li>
       `);
+
+      const deleteButton = document.querySelector(`.delete-button-${index}`);
+
+      deleteButton.addEventListener('click', () => this.deleteName(index));
     });
   }
 
-  addName(name) {
-    this.names.push(name);
+  addName() {
+    if (this.input.value === '') return;
+    
+    this.names.push(this.input.value);
     this.update(this.names);
+    this.input.value = '';
   }
 
   deleteName(index) {
